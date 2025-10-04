@@ -1,0 +1,303 @@
+/* Selettore universale : applica a tutti gli elementi : 
+include padding /border nel calcolo widht/height, azzera margini e padding; 
+Riesco quindi a partire dall angolo alto dsinistro senza avere bordi o margini impostati automaticamente dal browser
+*/
+
+*{
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+html {
+
+    scroll-behavior: smooth; /* scorrimento fluido della pagine verso gli ANCHOR ID*/
+
+}
+
+body {
+
+    font-family: "Montserrat", sans-serif; /* Font principale della pagina */
+    line-height: 1.5; /* Altezza riga per leggibilità */
+    color: black;
+
+}
+
+.brand {
+
+    display: flex; /* contenitore del logo : immagine+ testo su una riga */
+    align-items: center; /* allineamento verticale centrato */
+
+}
+
+
+.logo-img {
+
+    width: 35px; /* larghezza dell icona logo */
+    height: auto; /* altezza proporzionale */
+    margin-right: 10px; /* pazio tra icona e testo del nomeazienda*/
+    display: block; 
+    
+}
+
+.logo-text {
+
+    font-weight: bold; /* testo in grassetto*/
+    font-size: 18; /* dimensione del testo del brand (nome azienda)*/
+    color: #f4f1de;
+
+}
+
+/* navbar header */
+.navbar { 
+
+    display: flex; /* uso flexbox per disporre contenuti su una riga */
+    justify-content: space-between; /* spazio tra brand e link a destra*/
+    align-items: center; /* allinea verticalmente al centro */
+    
+    background: #3D405B; /* COLORE NAVBAR*/
+    padding: 10px 20px; /*spaziatura interna del componente */
+    position: sticky;  
+    top: 0; /* attacca al bordo superiore dell a viewport */
+    z-index: 1000; /* sta sopra a tutti gli elementi */
+    
+}
+
+.links {
+    display: flex;
+    gap: 15px;
+}
+
+
+.links a{
+
+    color: #f4f1de; /* colore uniforme stilisticamente*/
+    text-decoration: none; /* tolgo il sottolineato*/
+    font-weight: bold; /* grassetto*/
+
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.home-title {
+
+    font-size: 20px;
+    margin-top: 120px;
+    color: #f4f1de;
+
+
+}
+
+
+.home-sub {
+
+    font-size: 16px;
+    margin-top: 15px;
+    color: #f4f1de;
+
+}
+
+
+
+.section {
+
+    position: relative;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: block;
+
+}
+
+.center {
+
+    min-height: calc(100vh - 0px); /* altezza: qui possiamo sottrarre l altezza della navbar SE FISSA */ 
+    display: grid; /* grid per centratura rapida */
+    place-items: center; /* centro orizzontale + verticale */
+
+    text-align: center;
+    gap: 12px;
+
+
+}
+
+
+.has-bg {
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+#home.has-bg {
+
+    background-image: url("https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+}
+
+
+#contatti.has-bg {
+
+    background-image: url("https://images.unsplash.com/photo-1641160923894-b1a80920187d?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+}
+
+
+#prodotti.has-bg {
+
+    background-image: url("https://images.unsplash.com/photo-1559761132-5952db82b3e3?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+}
+
+
+
+.overlay {
+
+    position: absolute;
+    inset: 0; /* shorthand per top/right/bottom/left: 0 (riempi tuta la section) */
+    background: rgba(0, 0, 0, 0.15); /* "Velo" scuro trasparente sopra l immagine*/
+    z-index: 0;
+}
+
+.section-demo {
+
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: #f4f1de;
+    border-top: 1px solid grey;
+
+}
+
+.media{
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+
+}
+
+.demo-col{
+
+    background: #ffff;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+
+}
+
+.media-figure {
+
+    flex: 0 0 320px;
+    flex-direction: column;
+    
+
+}
+
+.media-img {
+
+    width: 100%; /* larga quanto il container*/
+    height: 420px;
+    object-fit: cover;
+    display: block;
+
+}
+
+
+.media-body{
+
+ flex: 1 1 auto; /* si adatta allo spazio */
+
+}
+
+
+.full-height {
+
+    min-height: 100vh;
+    position: relative;
+
+}
+
+.contatti-block{
+
+    position: absolute;
+    bottom: 40px;
+    left: 25px;
+
+
+}
+
+.contatti-label{
+
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #f4f1de;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+
+}
+
+.contatti-info{
+
+    font-size: 16px;
+    color: #f4f1de;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+
+}
+
+
+
+/* wrapper contenuti dentro le sezioni ( per gestire facilmente le centrature)*/
+
+.inner{
+    position: relative; /* contesto di posizionamento per figli*/
+    max-width: 1200px; /* larghezza massima contenuto */
+    margin: 0 auto;
+
+}
+
+.cards {
+    display: flex; /* container card in flexbox*/
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+.card {
+    flex: 1 1 250px;/* grow:1 (cresce), shrink:1 (si restringe) base:250px */
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #f4f1de;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+}
+
+.card-img {
+
+    width: 100%; /*Larga quanto la card*/
+    height: 160px; /* Altezza fissa per uninformare*/
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: block;
+    object-fit: cover;
+}
+
+
+.card h3 {
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 15px;
+    color: #334155;
+}
+
+.inner h2 {
+    color: #f4f1de;
+}
